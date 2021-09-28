@@ -1,0 +1,15 @@
+﻿@model OKVGU.Models.Subject
+
+<tr id=@Model.id>
+    <td>@Model.Title</td>
+    <td>
+        @if (Model.IsPractice) 
+        { 
+            @:Да 
+        }
+        else
+        {
+            @:Нет
+        }
+    </td>
+</tr>

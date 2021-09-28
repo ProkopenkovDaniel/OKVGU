@@ -1,0 +1,20 @@
+﻿@model IEnumerable<OKVGU.Models.SubjectSemesterTotal>
+<table class="table table-bordered table-hover">
+    <tbody>
+        <tr>
+            <th>
+                Предмет
+            </th>
+            <th>
+                Преподаватель
+            </th>
+            <th>
+                Количество часов
+            </th>
+        </tr>
+        @foreach (OKVGU.Models.SubjectSemesterTotal sst in Model)
+        {
+            @Html.Partial("SubjectSemesterTip", sst);
+        }
+    </tbody>
+</table>

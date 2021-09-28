@@ -1,0 +1,13 @@
+﻿@model IEnumerable<OKVGU.Models.Group>
+@{
+    ViewBag.Title = "Result";
+}
+
+<h2>Result</h2>
+
+<table  class="table table-bordered table-hover">
+    @foreach(OKVGU.Models.Group group in Model)
+     {
+        Html.RenderPartial("ResultRow", group);
+     }
+</table>

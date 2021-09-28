@@ -1,0 +1,53 @@
+﻿@model OKVGU.Models.SubjectSemester
+@{
+    Layout = null;
+}
+<div class="modal-content">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal" area-hidden="true">X</button>
+        <h4>Группа</h4>
+    </div>
+    <div class="modal-body">
+        @using (Ajax.BeginForm("AddSubjectSemester", "Home", new AjaxOptions{ HttpMethod = "Post", UpdateTargetId= "table" }, new { @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            @Html.HiddenFor(m => m.id)
+            <div class="form-group">
+                <label class="col-md-4 control-label">Группа</label>
+                <div class="col-md-8">
+                    @Html.DropDownListFor(m => m.GroupId, new SelectList(ViewBag.Groups, "id", "Title"), new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Семестр</label>
+                <div class="col-md-8">
+                    @Html.DropDownListFor(m => m.SemesterId, new SelectList(ViewBag.Semesters, "id", "Title"), new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Предмет</label>
+                <div class="col-md-8">
+                    @Html.DropDownListFor(m => m.SubjectId, new SelectList(ViewBag.Subjects, "id", "Title"), new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Преподаватель</label>
+                <div class="col-md-8">
+                    @Html.DropDownListFor(m => m.TeacherId, new SelectList(ViewBag.Teachers, "id", "Name"), new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Количество часов</label>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(m => m.Amount, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-8">
+                    <input type="submit" class="btn btn-default send" value="Добавить" id="sendSemester"/>
+                </div>
+            </div>
+        }
+    </div>
+</div>

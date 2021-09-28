@@ -1,0 +1,37 @@
+﻿@model IEnumerable<OKVGU.Models.Subject>
+@{ 
+    ViewBag.Title = "Предметы";
+}
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Предметы</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-10">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>
+                            Название
+                        </th>
+                        <th>
+                            Практика
+                        </th>
+                    </tr>
+                    @foreach (OKVGU.Models.Subject subject in Model)
+                    {
+                        @Html.Partial("SubjectTip", subject);
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-2 controlBtn">
+            @Html.Partial("ControlBtn");
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
+<div class="jumbotron">
+    <h1>OKVGU - информационный сайт Оршанского колледжа ВГУ им. П.М.Машерова</h1>
+    <p class="lead">
+        Для генерации расписания нажмите на кнопку.
+    </p>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <button data-handler=@Url.Action("CreateSchedule", "Schedule") class="btn btn-success" id="createBtn">Создать расписание</button>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group d-t7kh68bky89yjnn kiokl97y89iuytrerw45" id="SemesterDropDown">
+                    @Html.Partial("SemesterDropDown", ViewData["Semesters"])
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="d-flex">
+                    <button data-handler=@Url.Action("ModalSemester", "Home") class="btn btn-success" id="addBtnSem">+</button>
+                    <button data-handler=@Url.Action("ModalEditSemester", "Home") class="btn btn-primary" id="editBtnSem">/</button>
+                    <button data-handler=@Url.Action("DropSemester", "Home") class="btn btn-danger" id="dropBtnSem">-</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

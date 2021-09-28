@@ -1,0 +1,15 @@
+﻿@model OKVGU.Models.Specialty
+
+<tr id=@Model.id>
+    <td>@Model.Title</td>
+    <td>
+        @if (Model.IsPedSpec) 
+        {
+            @: Да
+        } 
+        else 
+        {
+            @: Нет
+        }
+    </td>
+</tr>

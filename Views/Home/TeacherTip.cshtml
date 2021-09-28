@@ -1,0 +1,29 @@
+﻿@model OKVGU.Models.Teacher
+
+<tr  data-handler = @Url.Action("ModalEdit"+ViewBag.Section, "Home") id=@Model.id>
+    <td>@Model.LastName</td>
+    <td>@Model.FirstName</td>
+    <td>@Model.Patronym</td>
+    <td>
+    @if (Model.IsAdm)
+            {
+                @:Да
+            }
+            else
+            {
+                @:Нет
+            }
+    </td>
+    <td>
+        @if(Model.IsSocWorker)
+        {
+            @: Да
+        }
+        else 
+        {
+            @:Нет
+        }
+    </td>
+    <td>@Model.HoursPerYear</td>
+</tr>
+

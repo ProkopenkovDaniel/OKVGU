@@ -1,0 +1,35 @@
+﻿@model OKVGU.Models.Semester
+@{
+    Layout = null;
+}
+<div class="modal-content">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal" area-hidden="true">X</button>
+        <h4>Группа</h4>
+    </div>
+    <div class="modal-body">
+        @using (Ajax.BeginForm("AddSemester", "Home", new AjaxOptions { UpdateTargetId = "SemesterDropDown"}, new { @class = "form-horizontal validate", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            @Html.HiddenFor(m => m.id)
+            <div class="form-group">
+                <label class="col-md-4 control-label">Учебный год</label>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(m => m.Year, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Номер семестра</label>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(m => m.Number, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-8">
+                    <input type="submit" class="btn btn-default" value="Добавить" id="sendSemester" />
+                </div>
+            </div>
+         }
+    </div>
+</div>
